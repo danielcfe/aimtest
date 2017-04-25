@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    titleAim
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    - if flash[:alert]
+        #alert.hide = flash[:alert]
+    - if flash[:notice]
+        #notice.hide = flash[:notice]
+    = yield

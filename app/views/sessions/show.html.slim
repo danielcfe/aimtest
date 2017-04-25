@@ -1,0 +1,32 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3.white-container
+      h3 welcome to AimTest
+      = render 'share/errors', object: @user
+      = form_tag '/login', multipart: true do |f|
+        .form-group
+          label for="exampleInputEmail1"  Email
+          = email_field :user, :email, class: 'form-control', require: true, placeholder: 'Email'
+        .form-group
+          label for="exampleInputPassword1"  Facial image
+          = file_field :user, :image, class: 'form-control', require: true, placeholder: 'Email'
+        .text-center
+          = submit_tag 'login', class: 'btn btn-default'
+  .row
+    .col-md-6.text-center
+      h2 success case
+      .row
+        .col-md-12
+          label Email:
+          b contacto@aimmanager.com
+        .col-md-12
+          label Image:
+          = link_to('Image Contacto', image_path("icon.png")  )
+    .col-md-6.text-center
+      h2 error case
+      .row
+        .col-md-12
+          label Email:
+          b carlos@aimmanager.com
+        .col-md-12
+          label Image: Any
