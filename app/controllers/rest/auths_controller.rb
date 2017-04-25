@@ -1,6 +1,4 @@
 class Rest::AuthsController < ActionController::API
-  include ActionController::HttpAuthentication::Basic::ControllerMethods
-  http_basic_authenticate_with name: "dhh", password: "secret"
 
   def login
     if ImageRecognitionService.new.match_user_image(user_params[:email], user_params[:image])

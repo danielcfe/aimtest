@@ -12,7 +12,7 @@ class ImageRecognitionService
 
   private
   def connect
-    @resource = RestClient::Resource.new( uri_email(@email), 'dhh', 'secret' )
+    @resource = RestClient::Resource.new( uri_email(@email), ENV['WS2_USER'], ENV['WS2_PASS'] )
     resource.post(payload)
     (res.code == 200)
   end
@@ -22,7 +22,7 @@ class ImageRecognitionService
   end
 
   def payload
-    { email: @email, image: @image, name: 'dhh', password: 'secret' }
+    { email: @email, image: @image}
   end
 
 end

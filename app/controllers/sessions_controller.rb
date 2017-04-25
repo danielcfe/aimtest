@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
 
   def show
-    @user = User.new
+    @user = UserService.new
   end
 
   def create
-    @user = User.new(auths_params)
+    @user = UserService.new(auths_params)
     if @user.valid? && AuthService.new.login(@user.email, @user.base64_encoder_image)
       UserMailer.success_login(auths_params[:email], user_agent).deliver_later!
       render :show, notice: 'success'
