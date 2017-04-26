@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'slim', :github => "slim-template/slim", :branch => "master"
+gem 'mailgun_rails'
+
 
 gem 'dotenv-rails', groups: [:development, :test]
 
@@ -71,7 +73,6 @@ group :development do
 end
 
 group :production do
-  gem 'mailgun_rails'
   gem 'rails_12factor', '0.0.3'
 end
 
