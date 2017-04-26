@@ -16,7 +16,7 @@ class ImageRecognitionService
       resource = RestClient::Resource.new( uri_email(@email), ENV['WS2_USER'], ENV['WS2_PASS'] )
       res = resource.post(payload)
       (res.code == 200)
-    rescue RestClient::NotFound
+    rescue RestClient::ExceptionWithResponse
       false
     end
   end

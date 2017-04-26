@@ -11,8 +11,12 @@ class AuthService
   end
 
   def connect
-    res = RestClient.post(@uri, payload)
-    (res.code == 200)
+    begin
+      res = RestClient.post(@uri, payload)
+      (res.code == 200)
+    rescue RestClient::ExceptionWithResponse
+      false
+    end
   end
 
   private
