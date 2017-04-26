@@ -28,7 +28,7 @@ gem 'email_validator'
 # http libraries
 gem 'httpclient'
 gem 'rest-client'
-
+gem 'delayed_job_active_record'
 gem 'sparkpost_rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -71,7 +71,6 @@ group :development do
 end
 
 group :production do
-  gem 'sidekiq'
   gem 'mailgun_rails'
   gem 'rails_12factor', '0.0.3'
 end
