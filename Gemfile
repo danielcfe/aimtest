@@ -46,6 +46,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 # gem 'capistrano-rails', group: :development
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'webmock'

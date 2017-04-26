@@ -2,8 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Rest::BiometricsController, type: :controller do
 
+  include AuthHelper
+  before(:each) do
+    http_login
+  end
+
   describe 'GET index as admin' do
-    let(:ok_params) { {email: ENV['OK_EMAIL'], image: 'test'} }
+    let!(:user) { create(:user, email: 'danielcfe@gmail.com', image: 'test') }
+    let(:ok_params) { {email: user.email, image: user.image} }
     it 'has a 200 status code' do
       get :verify_user, params: ok_params
       expect(response.status).to eq(200)

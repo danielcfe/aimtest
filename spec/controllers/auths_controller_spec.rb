@@ -9,7 +9,7 @@ RSpec.describe Rest::AuthsController, type: :controller do
     end
     it 'has a 200 status code' do
       get :login, params: ok_params
-      expect(response.status).to eq(200)
+      expect(response.code.to_i).to eq(200)
     end
   end
 
@@ -20,7 +20,7 @@ RSpec.describe Rest::AuthsController, type: :controller do
     end
     it 'has a 404 status code' do
       get :login, params: not_fount_params
-      expect(response.status).to eq(404)
+      expect(response.code.to_i).to eq(404)
     end
   end
 
