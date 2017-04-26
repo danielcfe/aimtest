@@ -14,7 +14,7 @@ class ImageRecognitionService
   def connect
     resource = RestClient::Resource.new( uri_email(@email), ENV['WS2_USER'], ENV['WS2_PASS'] )
     resource.post(payload)
-    (res.code == 200)
+    (resource.code == 200)
   end
 
   def uri_email(email)
