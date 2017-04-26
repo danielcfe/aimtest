@@ -12,7 +12,7 @@ class UserService
   end
 
   def base64_encoder_image
-    @img_encode ||= Base64.decode64(image.read)
+    @img_encode ||= Base64.strict_encode64(image.read)
   end
 
 end

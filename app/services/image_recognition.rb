@@ -1,7 +1,8 @@
 class ImageRecognition
 
   def match_user_image(email, image)
-    User.exists?(email: email, image: image)
+    user = User.find_by(email: email)
+    (user.nil?)? false : user.image.eql?(image)
   end
 
 end
