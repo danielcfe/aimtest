@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :rest, constraints: { format: 'json' } do
     post 'login', to: 'auths#login', as: :api_login
-    post  'verify_user/:email', to: 'biometrics#verify_user', as: :verify_user, constraints: { :email => /[^\/]+/  }
+    post  'verify_user/(:email)', to: 'biometrics#verify_user', as: :verify_user, constraints: { :email => /[^\/]+/  }
   end
 
 end
