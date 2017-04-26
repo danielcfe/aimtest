@@ -8,10 +8,12 @@ class SessionsController < ApplicationController
     @user = UserService.new(auths_params)
     if @user.valid? && AuthService.new.login(@user.email, @user.base64_encoder_image)
       UserMailer.success_login(auths_params[:email], user_agent).deliver_later!
-      render :show, notice: 'success'
+      flash[:notice] = 'login success, check your email'
+      render :show
     else
       UserMailer.fail_login(auths_params[:email], user_agent).deliver_later!
-      render :show, notice: 'fail'
+      flash[:alert] = 'login fail, check your email'
+      render :show
     end
   end
 
