@@ -7,11 +7,11 @@ class SessionsController < ApplicationController
   def create
     @user = UserService.new(auths_params)
     if @user.valid? && AuthService.new.login(@user.email, @user.base64_encoder_image)
-      UserMailer.success_login(auths_params[:email], user_agent).deliver_later
+      UserMailer.success_login(auths_params[:email], user_agent).deliver
       flash[:notice] = 'login success, check your email'
       render :show
     else
-      UserMailer.fail_login(auths_params[:email], user_agent).deliver_later
+      UserMailer.fail_login(auths_params[:email], user_agent).deliver
       flash[:alert] = 'login fail, check your email'
       render :show
     end
