@@ -1,2 +1,2 @@
-web: bundle exec rails server -p $PORT
-clock: bundle exec clockwork clock.rb
+web: bundle exec puma -C config/puma.rb
+worker: bundle exec sidekiq -q default -q mailers
